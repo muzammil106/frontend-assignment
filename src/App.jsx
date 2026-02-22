@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import Subscription from './pages/Subscription';
 import Device from './pages/Device';
@@ -8,7 +8,7 @@ function App() {
   return (
     <Layout>
       <Routes>
-        <Route path="/" element={<Subscription />} />
+        <Route path="/" element={<Navigate to="/subscription" replace />} />
         <Route path="/subscription" element={<Subscription />} />
         <Route path="/device" element={<Device />} />
         <Route path="/easy-access" element={<EasyAccess />} />
