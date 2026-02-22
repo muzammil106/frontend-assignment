@@ -1,0 +1,23 @@
+@use 'variables' as v;
+
+@mixin focus-ring {
+  outline: 2px solid v.$color-focus;
+  outline-offset: 2px;
+}
+
+@mixin card {
+  background: v.$color-surface;
+  border-radius: v.$radius-md;
+  box-shadow: v.$shadow-sm;
+  border: 1px solid v.$color-border;
+}
+
+@mixin responsive-padding {
+  padding: 1rem;
+  @media (min-width: v.$breakpoint-mobile) {
+    padding: 1.5rem;
+  }
+  @media (min-width: v.$breakpoint-tablet) {
+    padding: 2rem;
+  }
+}

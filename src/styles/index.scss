@@ -1,0 +1,85 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  margin: 0;
+  font-family: v.$font-sans;
+  color: v.$color-text;
+  background: v.$color-bg;
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: v.$color-primary;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:focus-visible {
+  @include m.focus-ring;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+button:focus-visible {
+  @include m.focus-ring;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+input,
+select {
+  font-family: inherit;
+}
+input:focus,
+select:focus {
+  outline: 2px solid v.$color-focus;
+  outline-offset: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

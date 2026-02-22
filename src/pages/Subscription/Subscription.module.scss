@@ -1,0 +1,409 @@
+@use 'sass:color';
+@use '../../styles/variables' as *;
+
+.page {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.pageContent {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 80px;
+  scrollbar-gutter: stable;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+.sectionLine {
+  border: none;
+  border-top: 1px solid $color-border-light;
+  margin: 0 0 20px;
+}
+
+$navbar-teal: #3d7a75;
+
+.title {
+  margin: 0 0 6px;
+  font-size: 24px;
+  font-weight: 700;
+  color: $navbar-teal;
+}
+
+.subtitle {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: $color-text-muted;
+  line-height: 1.4;
+}
+
+.titleLine {
+  border: none;
+  border-top: 1px solid $color-border-light;
+  margin: 0 0 20px;
+}
+
+.section {
+  margin-bottom: 28px;
+}
+
+.sectionTitle {
+  margin: 0 0 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.planGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.planCard {
+  border: 1px solid $color-border-light;
+  border-radius: $radius-md;
+  padding: 14px 12px;
+  background: $color-surface;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+  text-align: left;
+}
+
+.planCard:hover {
+  border-color: color.adjust($color-border-light, $lightness: -4%);
+}
+
+.planCardSelected {
+  border-color: $color-teal;
+  border-width: 2px;
+  background: $color-teal-bg;
+}
+
+.planName {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.featureList {
+  margin: 0 0 6px;
+  padding: 0;
+  list-style: none;
+  font-size: 12px;
+  color: $color-text;
+  line-height: 1.4;
+}
+
+.featureList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.featureIcon {
+  color: $navbar-teal;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.planPrice {
+  margin: 0;
+  padding-top: 2px;
+  font-size: 16px;
+  font-weight: 700;
+  color: $navbar-teal;
+}
+
+.addonList {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.addonOption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid $color-border-light;
+  border-radius: $radius-md;
+  cursor: pointer;
+  font-size: 15px;
+  color: $color-text;
+  flex: 1;
+  min-width: 0;
+}
+
+.addonOption:hover:not(.addonDisabled) {
+  border-color: color.adjust($color-border-light, $lightness: -4%);
+}
+
+.addonDisabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.radio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radioCustom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid $color-border;
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.radio:checked + .radioCustom {
+  border-color: $color-teal;
+  border-width: 2px;
+}
+
+.radio:checked + .radioCustom::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  background: $color-teal;
+  border-radius: 50%;
+}
+
+.radio:focus-visible + .radioCustom {
+  outline: 2px solid $color-focus;
+  outline-offset: 2px;
+}
+
+.addonLabel {
+  flex: 1;
+  position: relative;
+}
+
+.comingSoon {
+  position: absolute;
+  right: 0;
+  top: -2px;
+  font-size: 12px;
+  color: $color-text-light;
+  background: #f0f0f0;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.cardSingle {
+  display: flex;
+  align-items: center;
+  border: 1px solid $color-border-light;
+  border-radius: $radius-md;
+  background: $color-surface;
+  padding: 0 14px;
+  margin-bottom: 12px;
+  margin-left: 10px;
+  min-height: 48px;
+  max-width: 420px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.cardSingle:focus-within {
+  border-color: $color-teal;
+  box-shadow: 0 0 0 2px $color-teal;
+}
+
+.cardSingle .cardIcon {
+  flex-shrink: 0;
+  color: $color-text-muted;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.cardSingle input {
+  outline: none;
+}
+
+.cardSingle input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.cardInputMain {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 0;
+  font-size: 15px;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+}
+
+.cardInputMain::placeholder {
+  color: $color-text-light;
+}
+
+.cardDivider {
+  width: 1px;
+  height: 24px;
+  background: $color-border-light;
+  flex-shrink: 0;
+  margin: 0 6px;
+}
+
+.cardInputExpiry {
+  width: 72px;
+  padding: 12px 8px;
+  font-size: 15px;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+}
+
+.cardInputExpiry::placeholder {
+  color: $color-text-light;
+}
+
+.cardInputCvc {
+  width: 56px;
+  padding: 12px 8px;
+  font-size: 15px;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+}
+
+.cardInputCvc::placeholder {
+  color: $color-text-light;
+}
+
+.cardNote {
+  margin: 0;
+  font-size: 13px;
+  color: $color-text-muted;
+  line-height: 1.4;
+}
+
+.learnMore {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: #000;
+  line-height: 1.5;
+}
+
+.link {
+  color: $color-teal;
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: $color-teal-dark;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  flex-shrink: 0;
+  margin-top: 0;
+  padding: 6px 0;
+  border-top: 1px solid $color-border-light;
+  background: $color-surface;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+.footerInner {
+  width: 100%;
+  max-width: $content-max-width;
+  margin: 0 auto;
+  padding: 0 20px 0 $sidebar-width;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nextBtn {
+  min-width: 220px;
+  max-width: 320px;
+  margin-right: 0;
+  padding: 10px 28px 10px 40px;
+  font-size: 16px;
+  font-weight: 700;
+  color: $color-text;
+  background: $color-yellow;
+  border: none;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.nextBtn:hover {
+  background: $color-yellow-dark;
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .planGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .pageContent {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 100px;
+  }
+
+  .footer {
+    padding: 8px 16px;
+  }
+
+  .footerInner {
+    max-width: none;
+    padding: 0;
+    width: 100%;
+  }
+
+  .nextBtn {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    padding: 14px 24px;
+  }
+
+  .addonList {
+    flex-direction: column;
+  }
+  .cardSingle {
+    padding: 0 10px;
+  }
+  .cardInputExpiry {
+    width: 58px;
+  }
+  .cardInputCvc {
+    width: 48px;
+  }
+}
