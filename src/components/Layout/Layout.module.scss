@@ -229,7 +229,7 @@ $navbar-teal: #3d7a75;
   max-width: 100%;
   min-width: 0;
   min-height: 44px;
-  padding: 12px 36px 12px 14px;
+  padding: 12px 14px 12px 14px;
   font-size: 16px;
   font-family: inherit;
   color: $color-text;
@@ -241,8 +241,15 @@ $navbar-teal: #3d7a75;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: 10px;
   text-align: left;
+}
+
+.mobileStepTrigger > span:first-child {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .mobileStepTrigger:focus-visible {
@@ -252,8 +259,10 @@ $navbar-teal: #3d7a75;
 
 .mobileStepChevron {
   flex-shrink: 0;
+  margin-left: auto;
   color: $color-text-light;
   transition: transform 0.2s;
+  display: block;
 }
 
 .mobileStepWrapOpen .mobileStepChevron {
